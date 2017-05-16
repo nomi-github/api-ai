@@ -61,7 +61,7 @@ def processRequest(req):
 
 
 def makeWebhookResult(data, valutName):
-	speech = ""
+	speech = "RESULT: "
 
 	for value in data:
 		key=''.join(value[0].split())
