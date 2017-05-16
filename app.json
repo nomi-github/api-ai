@@ -1,0 +1,7 @@
+{
+  "name": "API.AI webhook currency converter test",
+  "description": "API.AI webhook currency converter test",
+  "repository": "https://github.com/nomi-github/api-ai",
+  "logo": "http://xvir.github.io/img/apiai.png",
+  "keywords": ["api.ai", "natural language"]
+}
