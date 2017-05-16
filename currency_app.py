@@ -57,11 +57,11 @@ def processRequest(req):
 							 for row in BeautifulSoup(result,"html.parser")("tr")]
 		data = json.loads(json.dumps(table_data))
 		#data = json.loads(result)
-		print data
+		#print data
 		res = makeWebhookResult(data, currency)
 		return res
 	else
-		return {}
+		return None
 
 
 
