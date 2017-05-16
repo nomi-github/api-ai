@@ -60,8 +60,14 @@ def processRequest(req):
 		#print data
 		res = makeWebhookResult(data, currency)
 		return res
-	else
-		return None
+	else:
+		return {
+			"speech": "no result",
+			"displayText": "no result",
+			# "data": data,
+			# "contextOut": [],
+			"source": "apiai-nomi-test-currency-converter-webhook-sample"
+		}
 
 
 
