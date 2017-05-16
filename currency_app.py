@@ -39,33 +39,33 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "tdbCurrencyConverter":
-        return {}
-    baseurl = "http://www.tdbm.mn/script.php?mod=rate&ln=mn"
-    result = req.get("result")
-	parameters = result.get("parameters")
-    currency = parameters.get("currency")
+ if req.get("result").get("action") != "tdbCurrencyConverter":
+ return {}
+ baseurl = "http://www.tdbm.mn/script.php?mod=rate&ln=mn"
+ result = req.get("result")
+ parameters = result.get("parameters")
+ currency = parameters.get("currency")
     #if city is None:
     #    return None
 		
     #yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(baseurl).read()
-    table_data = [[cell.text for cell in row("td")]
+ result = urlopen(baseurl).read()
+ table_data = [[cell.text for cell in row("td")]
                          for row in BeautifulSoup(result,"html.parser")("tr")]
-	data = json.dumps(table_data)
+ data = json.dumps(table_data)
 	#data = json.loads(result)
-    print data
-	res = makeWebhookResult(data, currency)
-    return res
+ print data
+ res = makeWebhookResult(data, currency)
+ return res
 
 
 
 def makeWebhookResult(data, valutName):
-	speech = "RESULT: "
+	speech = ""
 
 	for value in data:
 		key=''.join(value[0].split())
-		if (len(value)==6 and (key==valutName or valutName=="ALL")):
+		if (len(value)==6 and (key==valutName or valutName=="All")):
 			#print(value[4])
 			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ": " + value[1]  + ", " + \
 				 data[1][0] + "-" + data[2][0] + ": " + value[2] + ", " + \
