@@ -40,7 +40,7 @@ def webhook():
 
 def processRequest(req):
  if req.get("result").get("action") != "tdbCurrencyConverter":
- return {}
+	return {}
  baseurl = "http://www.tdbm.mn/script.php?mod=rate&ln=mn"
  result = req.get("result")
  parameters = result.get("parameters")
