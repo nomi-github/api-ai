@@ -51,7 +51,7 @@ def processRequest(req):
     #yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
     result = urlopen(baseurl).read()
     table_data = [[cell.text for cell in row("td")]
-                         for row in BeautifulSoup(result)("tr")]
+                         for row in BeautifulSoup(result,"html.parser")("tr")]
 	data = json.dumps(table_data)
 	#data = json.loads(result)
     print data
@@ -65,13 +65,13 @@ def makeWebhookResult(data, valutName):
 
 	for value in data:
 		key=''.join(value[0].split())
-		if (len(value)==6 && (key==valutName or key=="all") ):
+		if (len(value)==6 and (key==valutName or valutName=="all")):
 			#print(value[4])
-			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ", " + value[1]  + ", " + \
-				 data[1][0] + ", " + data[2][0] + ", " + value[2] + \
-				 data[1][0] + ", " + data[2][1] + ", " + value[3] + \
-				 data[1][1] + ", " + data[2][0] + ", " + value[4] + \
-				 data[1][1] + ", " + data[2][1] + ", " + value[5]
+			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ": " + value[1]  + ", " + \
+				 data[1][0] + "-" + data[2][0] + ": " + value[2] + ", " + \
+				 data[1][0] + "-" + data[2][1] + ": " + value[3] + ", " + \
+				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
+				 data[1][1] + "-" + data[2][1] + ": " + value[5]
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
 		
 		
