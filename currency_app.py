@@ -39,24 +39,29 @@ def webhook():
 
 
 def processRequest(req):
- if req.get("result").get("action") != "tdbCurrencyConverter":
-	return {}
- baseurl = "http://www.tdbm.mn/script.php?mod=rate&ln=mn"
- result = req.get("result")
- parameters = result.get("parameters")
- currency = parameters.get("currency")
-    #if city is None:
-    #    return None
-		
-    #yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
- result = urlopen(baseurl).read()
- table_data = [[cell.text for cell in row("td")]
-                         for row in BeautifulSoup(result,"html.parser")("tr")]
- data = json.dumps(table_data)
-	#data = json.loads(result)
- print data
- res = makeWebhookResult(data, currency)
- return res
+	if req.get("result").get("action") == "tdbCurrencyConverter":
+		baseurl = "http://www.tdbm.mn/script.php?mod=rate&ln=mn"
+		result = req.get("result")
+		if (result is None):
+			return None
+		parameters = result.get("parameters")
+		if (parameters is None):
+			return None
+		currency = parameters.get("currency")
+		if currency is None:
+		    return None
+			
+		#yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
+		result = urlopen(baseurl).read()
+		table_data = [[cell.text for cell in row("td")]
+							 for row in BeautifulSoup(result,"html.parser")("tr")]
+		data = json.loads(json.dumps(table_data))
+		#data = json.loads(result)
+		print data
+		res = makeWebhookResult(data, currency)
+		return res
+	else
+		return {}
 
 
 
