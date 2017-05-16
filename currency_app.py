@@ -65,7 +65,7 @@ def makeWebhookResult(data, valutName):
 
 	for value in data:
 		key=''.join(value[0].split())
-		if (len(value)==6 and (key==valutName or valutName=="all")):
+		if (len(value)==6 and (key==valutName or valutName=="ALL")):
 			#print(value[4])
 			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ": " + value[1]  + ", " + \
 				 data[1][0] + "-" + data[2][0] + ": " + value[2] + ", " + \
