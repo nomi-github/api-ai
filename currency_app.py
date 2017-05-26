@@ -79,86 +79,85 @@ def makeWebhookResult(data, valutName):
 				 data[1][0] + "-" + data[2][1] + ": " + value[3] + ", " + \
 				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
 				 data[1][1] + "-" + data[2][1] + ": " + value[5]
-	 
-   
+	 		facebookData={
+				"facebook": {
+					 "attachment": {
+						"type": "template",
+						"payload": {
+						    "template_type": "list",
+						    "top_element_style": "compact",
+						    "elements": [
+							{
+							    "title": "Монгол банкны ханш",
+							    "image_url": "https://www.mongolbank.mn/images/logo.png",
+							    "subtitle": value[0],
+							    "default_action": {
+								"type": "web_url",
+								"url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+								"messenger_extensions": true,
+								"webview_height_ratio": "tall",
+								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+							    },              
+							},
+							{
+							    "title": "Бэлэн бусаар",
+							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
+							    "subtitle": "авах: " + value[1] + ", зарах: " + value[2],
+							    "default_action": {
+								"type": "web_url",
+								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+								"messenger_extensions": true,
+								"webview_height_ratio": "tall",
+								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+							    },
+							    "buttons": [
+								{
+								    "title": "Төгрөгийн данснаас авах",
+								    "type": "web_url",
+								    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+								    "messenger_extensions": true,
+								    "webview_height_ratio": "tall",
+								    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+								}
+							    ]                
+							},
+									{
+							    "title": "Бэлнээр",
+							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
+							    "subtitle": "авах: " + value[3] + ", зарах: " + value[4],
+							    "default_action": {
+								"type": "web_url",
+								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+								"messenger_extensions": true,
+								"webview_height_ratio": "tall",
+								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+							    },
+							    "buttons": [
+								{
+								    "title": "Валютын данснаас зарах",
+								    "type": "web_url",
+								    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+								    "messenger_extensions": true,
+								    "webview_height_ratio": "tall",
+								    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+								}
+							    ]                
+							},
+						    ],
+						     "buttons": [
+							{
+							    "title": "Өөр валют харах",
+							    "type": "postback",
+							    "payload": "valutiin hansh"                        
+							}
+						    ]  
+						}
+					}
+				}
+			}
 	
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
-	facebookData = {
-		"facebook": {
-			 "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "list",
-            "top_element_style": "compact",
-            "elements": [
-                {
-                    "title": "Монгол банкны ханш",
-                    "image_url": "https://www.mongolbank.mn/images/logo.png",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },              
-                },
-                {
-                    "title": "Бэлэн бусаар",
-                    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-                    "subtitle": "авах: " + value[1] + ", зарах: " + value[2],
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Төгрөгийн данснаас авах",
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]                
-                },
-				{
-                    "title": "Бэлнээр",
-                    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-                    "subtitle": "авах: " + value[3] + ", зарах: " + value[4],
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Валютын данснаас зарах",
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]                
-                },
-            ],
-             "buttons": [
-                {
-                    "title": "Өөр валют харах",
-                    "type": "postback",
-                    "payload": "valutiin hansh"                        
-                }
-            ]  
-        }
-	}
-		}
-	}
+
 	return {
 		"speech": speech,
 		"displayText": speech,
