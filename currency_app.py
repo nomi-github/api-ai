@@ -100,7 +100,7 @@ def makeWebhookResult(data, valutName):
 						{
 						    "title": data[0][1],
 						    "image_url": "https://www.mongolbank.mn/images/logo.png",
-						    "subtitle": value[1],
+						    "subtitle": value[1] + "₮",
 						    "default_action": {
 							"type": "web_url",
 							"url": "https://www.mongolbank.mn/dblistforexoa.aspx",
@@ -110,7 +110,7 @@ def makeWebhookResult(data, valutName):
 						{
 						    "title": data[1][0],
 						    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-						    "subtitle": data[2][0] + ": " + value[2] + ", " + data[2][1] + ": "  + value[3],
+						    "subtitle": data[2][0] + ": " + value[2] + "₮, " + data[2][1] + ": "  + value[3] + "₮",
 						    "default_action": {
 							"type": "web_url",
 							"url": "http://tdbm.mn/mn/exchange",
@@ -128,7 +128,7 @@ def makeWebhookResult(data, valutName):
 						{
 						    "title": data[1][1],
 						    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-						    "subtitle": data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5],
+						    "subtitle": data[2][0] + ": " + value[4] + "₮, " + data[2][1] + ": " + value[5] + "₮",
 						    "default_action": {
 							"type": "web_url",
 							"url": "http://tdbm.mn/mn/exchange",
