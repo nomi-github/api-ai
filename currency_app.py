@@ -99,7 +99,7 @@ def makeWebhookResult(data, valutName):
 					    "elements": [
 						{
 						    "title": data[0][1],
-						    "image_url": "https://www.mongolbank.mn/images/logo.png"",
+						    "image_url": "https://www.mongolbank.mn/images/logo.png",
 						    "subtitle": value[1],
 						    "default_action": {
 							"type": "web_url",
@@ -113,32 +113,32 @@ def makeWebhookResult(data, valutName):
 						    "subtitle": data[2][0] + ": " + value[2] + ", " + data[2][1]  + value[3],
 						    "default_action": {
 							"type": "web_url",
-							"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+							"url": "http://tdbm.mn/mn/exchange",
 							"webview_height_ratio": "tall"
 						    },
 						    "buttons": [
 							{
-							    "title": "Buy or Sell",
+							    "title": "Зарах/Авах",
 							    "type": "web_url",
-							    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+							    "url": "http://tdbm.mn/mn/exchange",
 							    "webview_height_ratio": "tall"
 							}
 						    ]                
 						},
 						{
 						    "title": data[1][1],
-						    "image_url": "https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png",
+						    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
 						    "subtitle": data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5],
 						    "default_action": {
 							"type": "web_url",
-							"url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
+							"url": "http://tdbm.mn/mn/exchange",
 							"webview_height_ratio": "tall"
 						    },
 						    "buttons": [
 							{
-							    "title": "Oir salbariig oloh",
+							    "title": "Ойр салбарыг хайх",
 							    "type": "web_url",
-							    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+							    "url": "http://tdbm.mn/mn/exchange",
 							    "webview_height_ratio": "tall"
 							}
 						    ]                
@@ -146,7 +146,7 @@ def makeWebhookResult(data, valutName):
 					    ],
 					     "buttons": [
 						{
-						    "title": "Busad hanshiig harah",
+						    "title": "Өөр валют сонгох",
 						    "type": "postback",
 						    "payload": "valutiin hansh"                        
 						}
