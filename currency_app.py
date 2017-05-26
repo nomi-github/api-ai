@@ -110,7 +110,7 @@ def makeWebhookResult(data, valutName):
 						{
 						    "title": data[1][0],
 						    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-						    "subtitle": data[2][0] + ": " + value[2] + ", " + data[2][1]  + value[3],
+						    "subtitle": data[2][0] + ": " + value[2] + ", " + data[2][1] + ": "  + value[3],
 						    "default_action": {
 							"type": "web_url",
 							"url": "http://tdbm.mn/mn/exchange",
@@ -137,9 +137,9 @@ def makeWebhookResult(data, valutName):
 						    "buttons": [
 							{
 							    "title": "Ойр салбарыг хайх",
-							    "type": "web_url",
-							    "url": "http://tdbm.mn/mn/exchange",
-							    "webview_height_ratio": "tall"
+							    "type": "postback",
+							    "payload": "OIR_SALBARUUD_PAYLOAD",
+							    
 							}
 						    ]                
 						},
