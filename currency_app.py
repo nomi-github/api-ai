@@ -74,23 +74,27 @@ def makeWebhookResult(data, valutName):
 		key=''.join(value[0].split())
 		if (len(value)==6 and (key==valutName or valutName=="ALL")):
 			#print(value[4])
-			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ": " +   + ", " + \
-				 data[1][0] + "-" + data[2][0] + ": " +  + ", " + \
-				 data[1][0] + "-" + data[2][1] + ": " +  + ", " + \
+			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ": " + value[1]  + ", " + \
+				 data[1][0] + "-" + data[2][0] + ": " + value[2] + ", " + \
+				 data[1][0] + "-" + data[2][1] + ": " + value[3] + ", " + \
 				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
 				 data[1][1] + "-" + data[2][1] + ": " + value[5]
-					
-			
-				
+	 
+   
+	
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
-
+	facebookData = {
+		"facebook": {
+			"text": "Mongol banknii hansh: " + value[1]
+		}
+	}
 	return {
 		"speech": speech,
 		"displayText": speech,
-         #	"data": data,		
-        	# "contextOut": [],
+        	"data": facebookData,
+        # "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
-		}
+	}
 
 
 if __name__ == '__main__':
