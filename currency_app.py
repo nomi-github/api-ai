@@ -80,118 +80,22 @@ def makeWebhookResult(data, valutName):
 				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
 				 data[1][1] + "-" + data[2][1] + ": " + value[5]
 					
-			facebookData =  {
-				"facebook":  {
-					"attachment": {
-						"type": "template",
-						"payload": {
-						    "template_type": "list",
-						    "top_element_style": "compact",
-						    "elements": [
-							{
-							    "title": "Монгол банкны ханш",
-							    "image_url": "https://www.mongolbank.mn/images/logo.png",
-							    "subtitle": value[1],
-							    "default_action": {
-								"type": "web_url",
-								"url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-								"messenger_extensions": true,
-								"webview_height_ratio": "tall",
-								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-							    },              
-							},
-							{
-							    "title": "Бэлэн бусаар авах",
-							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							    "subtitle": value[2],
-							    "default_action": {
-								"type": "web_url",
-								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-								"messenger_extensions": true,
-								"webview_height_ratio": "tall",
-								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-							    },
-							    "buttons": [
-								{
-								    "title": "Төгрөгийн данснаас авах",
-								    "type": "web_url",
-								    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-								    "messenger_extensions": true,
-								    "webview_height_ratio": "tall",
-								    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-								}
-							    ]                
-							},
-									{
-							    "title": "Бэлэн бусаар зарах",
-							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							    "subtitle": value[3],
-							    "default_action": {
-								"type": "web_url",
-								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-								"messenger_extensions": true,
-								"webview_height_ratio": "tall",
-								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-							    },
-							    "buttons": [
-								{
-								    "title": "Валютын данснаас зарах",
-								    "type": "web_url",
-								    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-								    "messenger_extensions": true,
-								    "webview_height_ratio": "tall",
-								    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-								}
-							    ]                
-							},
-							{
-							    "title": "Бэлнээр зарах",
-							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							    "subtitle": value[4],
-							    "default_action": {
-								"type": "web_url",
-								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-								"messenger_extensions": true,
-								"webview_height_ratio": "tall",
-								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-							    }
-
-							},
-							{
-							    "title": "Бэлнээр авах",
-							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							    "subtitle": value[5],
-							    "default_action": {
-								"type": "web_url",
-								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-								"messenger_extensions": true,
-								"webview_height_ratio": "tall",
-								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-							    }
-
-							},
-						    ],
-						     "buttons": [
-							{
-							    "title": "Өөр валют харах",
-							    "type": "postback",
-							    "payload": "valutiin hansh"                        
-							}
-									{
-							    "title": "Үндсэн цэс руу буцах",
-							    "type": "postback",
-							    "payload": "payload"                        
-							}
-						    ]  
-						}
-					}
-				}
-			}
+			
+				
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
 	return {
 		"speech": speech,
 		"displayText": speech,
-         	"data": facebookData,
+         	"data":  {
+			"facebook": {
+			  "attachment": {
+			    "type": "image",
+			    "payload": {
+			      "url": "https://www.testclan.com/images/testbot/siege/weapons/assault-rifles.jpg"
+			    }
+			  }
+			}
+		},
         	# "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
