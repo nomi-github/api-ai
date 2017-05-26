@@ -74,7 +74,7 @@ def makeWebhookResult(data, valutName):
 		key=''.join(value[0].split())
 		if (len(value)==6 and (key==valutName or valutName=="ALL")):
 			#print(value[4])
-			speech += "\nOnoodriin " + key + "-n hansh: " + data[0][1] + ": " + value[1]  + ", " + \
+			speech += "\nOnoodriin " + key + "-n hansh: " +  + ": " + value[1]  + ", " + \
 				 data[1][0] + "-" + data[2][0] + ": " + value[2] + ", " + \
 				 data[1][0] + "-" + data[2][1] + ": " + value[3] + ", " + \
 				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
@@ -88,9 +88,9 @@ def makeWebhookResult(data, valutName):
 						    "top_element_style": "compact",
 						    "elements": [
 							{
-							    "title": "Монгол банкны ханш",
+							    "title": data[0][1],
 							    "image_url": "https://www.mongolbank.mn/images/logo.png",
-							    "subtitle": value[0],
+							    "subtitle": value[1],
 							    "default_action": {
 								"type": "web_url",
 								"url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
@@ -100,9 +100,9 @@ def makeWebhookResult(data, valutName):
 							    },              
 							},
 							{
-							    "title": "Бэлэн бусаар",
+							    "title": data[1][0],
 							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							    "subtitle": "авах: " + value[1] + ", зарах: " + value[2],
+							    "subtitle":  data[2][0] + ": " + value[2] + ", " + data[2][1] + ": " + value[3],
 							    "default_action": {
 								"type": "web_url",
 								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
@@ -112,7 +112,7 @@ def makeWebhookResult(data, valutName):
 							    },
 							    "buttons": [
 								{
-								    "title": "Төгрөгийн данснаас авах",
+								    "title": "Buy or sell",
 								    "type": "web_url",
 								    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
 								    "messenger_extensions": true,
@@ -122,9 +122,9 @@ def makeWebhookResult(data, valutName):
 							    ]                
 							},
 									{
-							    "title": "Бэлнээр",
+							    "title": data[1][1],
 							    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							    "subtitle": "авах: " + value[3] + ", зарах: " + value[4],
+							    "subtitle": data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5],
 							    "default_action": {
 								"type": "web_url",
 								"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
@@ -134,7 +134,7 @@ def makeWebhookResult(data, valutName):
 							    },
 							    "buttons": [
 								{
-								    "title": "Валютын данснаас зарах",
+								    "title": "Buy or Sell",
 								    "type": "web_url",
 								    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
 								    "messenger_extensions": true,
@@ -146,7 +146,7 @@ def makeWebhookResult(data, valutName):
 						    ],
 						     "buttons": [
 							{
-							    "title": "Өөр валют харах",
+							    "title": "More",
 							    "type": "postback",
 							    "payload": "valutiin hansh"                        
 							}
