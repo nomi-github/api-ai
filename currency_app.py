@@ -97,7 +97,7 @@ def makeWebhookResult(data, valutName):
 					    "elements": [
 						{
 						    "title": data[0][1],
-						    "image_url": "https://www.mongolbank.mn/images/logo.png"",
+						    "image_url": "https://www.mongolbank.mn/images/logo.png",
 						    "subtitle": value[1],
 						    "default_action": {
 							"type": "web_url",
