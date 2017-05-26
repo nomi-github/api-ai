@@ -70,6 +70,14 @@ def processRequest(req):
 
 def makeWebhookResult(data, valutName):
 	speech = ""
+	facebookData={
+		"facebook": {
+			"text":{ 
+			     "default answer from Webhook"
+			 }
+		}
+	}
+	
 	for value in data:
 		key=''.join(value[0].split())
 		if (len(value)==6 and (key==valutName or valutName=="ALL")):
