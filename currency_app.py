@@ -89,6 +89,9 @@ def makeWebhookResult(data, valutName):
 				 data[1][1] + "-" + data[2][1] + ": " + value[5]
 	 		facebookData={
 				"facebook": {
+					 "text":{ 
+					     "Response from webhook"
+					 },
 					 "attachment": {
 						"type": "template",
 						"payload": {
