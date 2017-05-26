@@ -133,14 +133,7 @@ def makeWebhookResult(data, valutName):
 							"type": "web_url",
 							"url": "http://tdbm.mn/mn/exchange",
 							"webview_height_ratio": "tall"
-						    },
-						    "buttons": [
-							{
-							    "type":"postback",
-							    "title":"Ойр салбаруудыг хайх",
-							    "payload":"OIR_SALBARUUD_PAYLOAD"
-							  }
-						    ]                
+						    }		             
 						},
 					    ],
 					     "buttons": [
