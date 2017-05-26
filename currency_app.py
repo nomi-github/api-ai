@@ -88,12 +88,7 @@ def makeWebhookResult(data, valutName):
 		"displayText": speech,
          	"data":  {
 			"facebook": {
-			  "attachment": {
-			    "type": "image",
-			    "payload": {
-			      "url": "https://www.testclan.com/images/testbot/siege/weapons/assault-rifles.jpg"
-			    }
-			  }
+			  "text":"hello, world!"
 			}
 		},
         	# "contextOut": [],
