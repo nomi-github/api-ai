@@ -116,7 +116,7 @@ def makeWebhookResult(data, valutName):
 						    },
 						    "buttons": [
 							{
-							    "title": "Buy or Sell",
+							    "title": "Авах/Зарах",
 							    "type": "web_url",
 							    "url": "http://tdbm.mn/mn/exchange",
 							    "webview_height_ratio": "tall"
@@ -134,7 +134,7 @@ def makeWebhookResult(data, valutName):
 						    },
 						    "buttons": [
 							{
-							    "title": "Oir salbariig oloh",
+							    "title": "Ойр салбаруудыг хайх",
 							    "type": "web_url",
 							    "url": "http://tdbm.mn/mn/exchange",
 							    "webview_height_ratio": "tall"
@@ -144,7 +144,7 @@ def makeWebhookResult(data, valutName):
 					    ],
 					     "buttons": [
 						{
-						    "title": "Busad hanshiig harah",
+						    "title": "Өөр валют сонгох",
 						    "type": "postback",
 						    "payload": "valutiin hansh"                        
 						}
