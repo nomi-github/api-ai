@@ -10,6 +10,7 @@ from urllib.error import HTTPError
 
 import json
 import os
+import codecs
 
 from flask import Flask
 from flask import request
