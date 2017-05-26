@@ -133,8 +133,16 @@ def makeWebhookResult(data, valutName):
 							"type": "web_url",
 							"url": "http://tdbm.mn/mn/exchange",
 							"webview_height_ratio": "tall"
-						    }		             
-						},
+						    },
+							 "buttons": [
+							{
+							    "title": "Авах/Зарах",
+							    "type": "web_url",
+							    "url": "http://tdbm.mn/mn/exchange",
+							    "webview_height_ratio": "tall"
+							}
+						    ]   
+						}
 					    ],
 					     "buttons": [
 						{
