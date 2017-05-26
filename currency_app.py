@@ -83,16 +83,11 @@ def makeWebhookResult(data, valutName):
 			
 				
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
-	data = { 
-		"facebook": {
-			  "text":"hello, world!"
-		}
-	}
-	
+
 	return {
 		"speech": speech,
 		"displayText": speech,
-         	"data": data,		
+         #	"data": data,		
         	# "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 		}
