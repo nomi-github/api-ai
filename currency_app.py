@@ -88,58 +88,82 @@ def makeWebhookResult(data, valutName):
 				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
 				 data[1][1] + "-" + data[2][1] + ": " + value[5]
 			facebookData={
-				"facebook": {
+				{
+  				"facebook": {
 					"attachment": {
-					  	"type": "template",
-					  	"payload": {
-						"template_type": "generic",
-						"elements": [
-					  	{
-							"title": data[1][0],
-							"image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-							"subtitle": data[2][0] + ": " + value[2] + ", " + data[2][1] + ": " + value[3],
-							"default_action": {
-							  "type": "web_url",
-							  "url": "https://www.moovrika.com/m/15666",
-							  "webview_height_ratio": "tall"
-						},
-						"buttons": [
-						  {
-							"title": "Avah",
-							"type": "web_url",
-							"url": "https://www.moovrika.com/m/4082",
-							"webview_height_ratio": "tall"
-						  },
-						  {
-							"title": "Zarah",
-							"type": "web_url",
-							"url": "https://www.moovrika.com/m/4082",
-							"webview_height_ratio": "tall"
-						  }
-						]
-					  },
-					  {
-						"title": data[1][1],
-						"image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
-						"subtitle": data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5],
-						"default_action": {
-						  "type": "web_url",
-						  "url": "https://www.moovrika.com/m/4167",
-						  "webview_height_ratio": "tall"
-						},
-						"buttons": [
-						  {
-						"title": "Salbaruudiig harah",
-						"type": "web_url",
-						"url": "https://www.moovrika.com/m/4082",
-						"webview_height_ratio": "tall"
-						  }
-						]
-					  }
-					]
-					  }
+						"type": "template",
+							"payload": {
+						    		"template_type": "list",
+						    		"top_element_style": "compact",
+						    		"elements": [
+									{
+									    "title": "tittle1",
+									    "image_url": "https://www.mongolbank.mn/images/logo.png",
+									    "subtitle": "subtitle",
+									    "default_action": {
+											"type": "web_url",
+											"url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+											"messenger_extensions": true,
+											"webview_height_ratio": "tall",
+											"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+									    }              
+									},
+									{
+									    "title": "tittle2",
+									    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
+									    "subtitle":  "subtitle",
+									    "default_action": {
+											"type": "web_url",
+											"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+											"messenger_extensions": true,
+											"webview_height_ratio": "tall",
+											"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+									 },
+									    "buttons": [
+										  {
+										    "title": "Buy or sell",
+										    "type": "web_url",
+										    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+										    "messenger_extensions": true,
+										    "webview_height_ratio": "tall",
+										    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+										  }
+									    ]                
+									},
+									{
+									    "title": "tittle",
+									    "image_url": "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif",
+									    "subtitle": "subtitle",
+									    "default_action": {
+										"type": "web_url",
+										"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+										"messenger_extensions": true,
+										"webview_height_ratio": "tall",
+										"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+									    },
+									    "buttons": [
+										  {
+										    "title": "Buy or Sell",
+										    "type": "web_url",
+										    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+										    "messenger_extensions": true,
+										    "webview_height_ratio": "tall",
+										    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+										  }
+									    ]                
+									}
+							],
+							"buttons": [
+									{
+									    "title": "More",
+									    "type": "postback",
+									    "payload": "valutiin hansh"                        
+									}
+								]  
+								}
+							}
+						}
 					}
-				  }
 			}
    
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
