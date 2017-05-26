@@ -98,6 +98,16 @@ def makeWebhookResult(data, valutName):
 					    "top_element_style": "compact",
 					    "elements": [
 						{
+						    "title": key,
+						    "image_url": "http://www.tdbm.mn/bundles/tdbm/css/img/icon/currency/" + key + ".png",
+						    "subtitle": "Өнөөдрийн ханш",
+						    "default_action": {
+							"type": "web_url",
+							"url": "http://tdbm.mn/mn/exchange",
+							"webview_height_ratio": "tall"
+						    }                    
+						},
+						{
 						    "title": data[0][1],
 						    "image_url": "https://www.mongolbank.mn/images/logo.png",
 						    "subtitle": value[1],
