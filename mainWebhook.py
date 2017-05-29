@@ -75,7 +75,7 @@ def processRequest(req):
 	
 	if action == "tdbCurrencyConverter":
 		return processCurrencyConverter(parameters)
-	elif action == "getBranchInSpecificDistrict"
+	elif action == "getBranchInSpecificDistrict":
 		return processSpecificDistrictBranch(parameters)
 	else:
 		return {
