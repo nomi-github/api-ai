@@ -137,7 +137,7 @@ def makeCurrencyWebhookResult(data, valutName):
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
 	
-def makeDistrictWebhookResult(data, districtCode):
+def makeDistrictWebhookResult(data, distCode):
 	speech = "Result from Webhook: "
 	facebookData={
 		"facebook": {
@@ -148,13 +148,13 @@ def makeDistrictWebhookResult(data, districtCode):
 	}
 	
 	for xmlValue in data:
-		branchDistCode = xmlValue.getElementsByTagName('DISTCODE')
-		tittle = xmlValue.getElementsByTagName('TITLE')
-		id = xmlValue.getElementsByTagName('ID')
-		detail = xmlValue.getElementsByTagName('DETAIL')
-		email = xmlValue.getElementsByTagName('EMAIL')
-		phone = xmlValue.getElementsByTagName('PHONE')
-		timeCode = xmlValue.getElementsByTagName('TIMECODE')
+		branchDistCode = (xmlValue.getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue
+		tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
+		id = (xmlValue.getElementsByTagName('ID'))[0].firstChild.nodeValue
+		detail = (xmlValue.getElementsByTagName('DETAIL'))[0].firstChild.nodeValue
+		email = (xmlValue.getElementsByTagName('EMAIL'))[0].firstChild.nodeValue
+		phone = (xmlValue.getElementsByTagName('PHONE'))[0].firstChild.nodeValue
+		timeCode = (xmlValue.getElementsByTagName('TIMECODE'))[0].firstChild.nodeValue
 		if (branchDistCode == distCode):
 			speech += tittle + ', хаяг: ' + detail + '\n'
 	
