@@ -55,7 +55,13 @@ def processSpecificDistrictBranch(parameters):
 	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Locations.xml'
 	distCode = parameters.get("distcode")
 	if distCode is None:
-		return None
+		return return {
+			"speech": distCode is null",
+			"displayText": "distCode is null",
+			# "data": data,
+			# "contextOut": [],
+			"source": "apiai-nomi-test-currency-converter-webhook-sample"
+		}
 	result = urlopen(baseurl).read()
 	xmldoc = minidom.parseString(result)
 	values = xmldoc.getElementsByTagName('BRANCH')	
