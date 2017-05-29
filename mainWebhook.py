@@ -109,9 +109,9 @@ def makeWebhookResult(data, valutName):
 			elements.append(constructFacebookListItem(key, "http://www.tdbm.mn/bundles/tdbm/css/img/icon/currency/" + key + ".png", "Өнөөдрийн ханш", "http://tdbm.mn/mn/exchange", []))
 			elements.append(constructFacebookListItem(data[0][1], "https://www.mongolbank.mn/images/logo.png", value[1], "https://www.mongolbank.mn/dblistforexoa.aspx", []))
 			elements.append(constructFacebookListItem(data[1][0], "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif", 
-						data[2][0] + ": " + value[2] + ", " + data[2][1] + ": "  + value[3], "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Зарах/Авах", "web_url", "http://tdbm.mn/mn/exchange", null)]))
+						data[2][0] + ": " + value[2] + ", " + data[2][1] + ": "  + value[3], "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Зарах/Авах", "web_url", "http://tdbm.mn/mn/exchange", None)]))
 			elements.append(constructFacebookListItem(data[1][1], "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif", 
-						data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5], "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Ойр салбарыг хайх", "postback", null, "OIR_SALBARUUD_PAYLOAD")]))
+						data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5], "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Ойр салбарыг хайх", "postback", None, "OIR_SALBARUUD_PAYLOAD")]))
 						
 						
 			facebookData={
@@ -121,7 +121,7 @@ def makeWebhookResult(data, valutName):
 						"payload": {
 							"template_type": "list",
 							"elements": elements,
-							 "buttons": [constructFacebookButton("Өөр валют сонго", "postback", null, "valutiin hansh")]
+							 "buttons": [constructFacebookButton("Өөр валют сонго", "postback", None, "valutiin hansh")]
 				 
 						}
 				    }
@@ -133,7 +133,7 @@ def makeWebhookResult(data, valutName):
 	return {
 		"speech": speech,
 		"displayText": speech,
-        	"data": facebookData,
+        "data": facebookData,
         # "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
