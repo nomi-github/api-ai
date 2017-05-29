@@ -56,7 +56,7 @@ def processSpecificDistrictBranch(parameters):
 	distCode = parameters.get("distcode")
 	if distCode is None:
 		return {
-			"speech": distCode is null",
+			"speech": "distCode is null",
 			"displayText": "distCode is null",
 			# "data": data,
 			# "contextOut": [],
