@@ -55,7 +55,7 @@ def processSpecificDistrictBranch(parameters):
 	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Locations.xml'
 	distCode = parameters.get("distcode")
 	if distCode is None:
-		return return {
+		return {
 			"speech": distCode is null",
 			"displayText": "distCode is null",
 			# "data": data,
