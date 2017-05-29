@@ -52,13 +52,13 @@ def processCurrencyConverter(parameters):
 	return res
 		
 def processSpecificDistrictBranch(parameters):
-	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Locations.xml'
+	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Dists.xml'
 	distCode = parameters.get("distcode")
 	if distCode is None:
 		return None
 	result = urlopen(baseurl).read()
 	xmldoc = minidom.parseString(result)
-	values = xmldoc.getElementsByTagName(rootTagName)	
+	values = xmldoc.getElementsByTagName('DIST')	
 	res = makeDistrictWebhookResult(values, distCode)
 	return res
 
