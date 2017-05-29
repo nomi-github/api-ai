@@ -52,7 +52,7 @@ def processCurrencyConverter(parameters):
 	return res
 		
 def processSpecificDistrictBranch(parameters):
-	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Dists.xml'
+	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Locations.xml'
 	distCode = parameters.get("distcode")
 	if distCode is None:
 		return None
