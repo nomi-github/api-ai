@@ -106,13 +106,13 @@ def makeWebhookResult(data, valutName):
 				 data[1][1] + "-" + data[2][0] + ": " + value[4] + ", " + \
 				 data[1][1] + "-" + data[2][1] + ": " + value[5]
 			elements = []
-			elements.append(constructFacebookListItem(key, "http://www.tdbm.mn/bundles/tdbm/css/img/icon/currency/" + key + ".png", "Өнөөдрийн ханш", "http://tdbm.mn/mn/exchange", []))
-			elements.append(constructFacebookListItem(data[0][1], "https://www.mongolbank.mn/images/logo.png", value[1], "https://www.mongolbank.mn/dblistforexoa.aspx", []))
-			elements.append(constructFacebookListItem(data[1][0], "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif", 
-						data[2][0] + ": " + value[2] + ", " + data[2][1] + ": "  + value[3], "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Зарах/Авах", "web_url", "http://tdbm.mn/mn/exchange", None)]))
-			elements.append(constructFacebookListItem(data[1][1], "https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif", 
-						data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5], "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Ойр салбарыг хайх", "postback", None, "OIR_SALBARUUD_PAYLOAD")]))
-						
+			elements.append(constructFacebookListItem(key, "Өнөөдрийн ханш", "http://www.tdbm.mn/bundles/tdbm/css/img/icon/currency/" + key + ".png", "http://tdbm.mn/mn/exchange", []))
+			elements.append(constructFacebookListItem(data[0][1],  value[1], "https://www.mongolbank.mn/images/logo.png", "https://www.mongolbank.mn/dblistforexoa.aspx", []))
+			elements.append(constructFacebookListItem(data[1][0], data[2][0] + ": " + value[2] + ", " + data[2][1] + ": "  + value[3], 
+							"https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif", "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Зарах/Авах", "web_url", "http://tdbm.mn/mn/exchange", None)]))
+			elements.append(constructFacebookListItem(data[1][1], data[2][0] + ": " + value[4] + ", " + data[2][1] + ": " + value[5], 
+							"https://seeklogo.com/images/T/TDB-logo-EE3C11F918-seeklogo.com.gif", "https://www.mongolbank.mn/dblistforexoa.aspx", [constructFacebookButton("Ойр салбарыг хайх", "postback", None, "OIR_SALBARUUD_PAYLOAD")]))
+					
 						
 			facebookData={
 				  "facebook": {
@@ -171,7 +171,7 @@ def constructFacebookButton(tittle, type, url, payload):
 			"url": url,
 			"webview_height_ratio": "tall"
 		}
-	elif (type == "posback"):
+	elif (type == "postback"):
 		return {
 			"title": tittle,
 			"type": type,
