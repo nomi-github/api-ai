@@ -1,1 +1,1 @@
-web: python currency_app.py
+web: python mainWebhook.py
