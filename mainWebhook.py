@@ -12,7 +12,7 @@ from urllib.error import HTTPError
 import json
 import os
 import codecs
-
+from xml.dom import minidom
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -48,19 +48,18 @@ def processCurrencyConverter(parameters):
 	table_data = [[cell.text for cell in row("td")]
 						 for row in BeautifulSoup(result,"html.parser")("tr")]
 	data = json.loads(json.dumps(table_data))
-	res = makeWebhookResult(data, currency)
+	res = makeCurrencyWebhookResult(data, currency)
 	return res
 		
 def processSpecificDistrictBranch(parameters):
 	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Dists.xml'
-	currency = parameters.get("distcode")
-	if currency is None:
+	distCode = parameters.get("distcode")
+	if distCode is None:
 		return None
 	result = urlopen(baseurl).read()
-	table_data = [[cell.text for cell in row("td")]
-						 for row in BeautifulSoup(result,"html.parser")("tr")]
-	data = json.loads(json.dumps(table_data))
-	res = makeWebhookResult(data, currency)
+	xmldoc = minidom.parseString(result)
+	values = xmldoc.getElementsByTagName(rootTagName)	
+	res = makeDistrictWebhookResult(values, distCode)
 	return res
 
 def processRequest(req):
@@ -86,7 +85,7 @@ def processRequest(req):
 			"source": "apiai-nomi-test-currency-converter-webhook-sample"
 		}
 
-def makeWebhookResult(data, valutName):
+def makeCurrencyWebhookResult(data, valutName):
 	speech = ""
 	facebookData={
 		"facebook": {
@@ -137,31 +136,50 @@ def makeWebhookResult(data, valutName):
         # "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
+	
+def makeDistrictWebhookResult(data, districtCode):
+	speech = ""
+	facebookData={
+		"facebook": {
+			"text":{ 
+			     "default answer from Webhook"
+			 }
+		}
+	}
+	
+	for xmlValue in data:
+		branchDistCode = xmlValue.getElementsByTagName('DISTCODE')
+		tittle = xmlValue.getElementsByTagName('TITLE')
+		id = xmlValue.getElementsByTagName('ID')
+		detail = xmlValue.getElementsByTagName('DETAIL')
+		email = xmlValue.getElementsByTagName('EMAIL')
+		phone = xmlValue.getElementsByTagName('PHONE')
+		timeCode = xmlValue.getElementsByTagName('TIMECODE')
+		if (branchDistCode == distCode):
+			speech += tittle + ', хаяг: ' + detail + '\n'
+	
+			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
+
+	return {
+		"speech": speech,
+		"displayText": speech,
+        #"data": facebookData,
+        # "contextOut": [],
+		"source": "apiai-nomi-test-currency-converter-webhook-sample"
+	}
 
 def constructFacebookListItem(tittle, subtittle, image_url, url, buttons):
-	if (buttons): 
-		return {
-			"title": tittle,
-			"image_url": image_url,
-			"subtitle": subtittle,
-			"default_action": {
-				"type": "web_url",
-				"url": url,
-				"webview_height_ratio": "tall"
-			},
-			"buttons": buttons   
-		}
-	else:
-		return {
-			"title": tittle,
-			"image_url": image_url,
-			"subtitle": subtittle,
-			"default_action": {
-				"type": "web_url",
-				"url": url,
-				"webview_height_ratio": "tall"
-			} 
-		}
+	return {
+		"title": tittle,
+		"image_url": image_url,
+		"subtitle": subtittle,
+		"default_action": {
+			"type": "web_url",
+			"url": url,
+			"webview_height_ratio": "tall"
+		},
+		"buttons": buttons   
+	}
 
 def constructFacebookButton(tittle, type, url, payload):
 	if (type == "web_url"):
