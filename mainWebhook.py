@@ -39,7 +39,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def processCurrencyConverter(parameters)
+def processCurrencyConverter(parameters):
 	baseurl = "http://www.tdbm.mn/script.php?mod=rate&ln=mn"
 	currency = parameters.get("currency")
 	if currency is None:
@@ -51,7 +51,7 @@ def processCurrencyConverter(parameters)
 	res = makeWebhookResult(data, currency)
 	return res
 		
-def processSpecificDistrictBranch(parameters)
+def processSpecificDistrictBranch(parameters):
 	baseurl = 'http://tdbm.mn/bundles/tdbm/js/xml/Dists.xml'
 	currency = parameters.get("distcode")
 	if currency is None:
@@ -138,7 +138,7 @@ def makeWebhookResult(data, valutName):
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
 
-def constructFacebookListItem(tittle, subtittle, image_url, url, buttons)
+def constructFacebookListItem(tittle, subtittle, image_url, url, buttons):
 	return {
 		"title": tittle,
 		"image_url": image_url,
@@ -151,7 +151,7 @@ def constructFacebookListItem(tittle, subtittle, image_url, url, buttons)
 		"buttons": buttons   
 	}
 
-def constructFacebookButton(tittle, type, url, payload)	
+def constructFacebookButton(tittle, type, url, payload):
 	if (type == "web_url"):
 		return {
 			"title": tittle,
