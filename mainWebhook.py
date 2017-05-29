@@ -137,34 +137,12 @@ def makeCurrencyWebhookResult(data, valutName):
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
 	
-def makeDistrictWebhookResult(data, distCode):
-	speech = "Result from Webhook: "
-	facebookData={
-		"facebook": {
-			"text":{ 
-			     "default answer from Webhook"
-			 }
-		}
-	}
-	
-	for xmlValue in data:
-		branchDistCode = (xmlValue.getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue
-		tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
-		id = (xmlValue.getElementsByTagName('ID'))[0].firstChild.nodeValue
-		detail = (xmlValue.getElementsByTagName('DETAIL'))[0].firstChild.nodeValue
-		email = (xmlValue.getElementsByTagName('EMAIL'))[0].firstChild.nodeValue
-		phone = (xmlValue.getElementsByTagName('PHONE'))[0].firstChild.nodeValue
-		timeCode = (xmlValue.getElementsByTagName('TIMECODE'))[0].firstChild.nodeValue
-		if (branchDistCode == distCode):
-			speech += tittle + ', хаяг: ' + detail + '\n'
-	
-			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
-
+def makeDistrictWebhookResult(data, distCode):	
 	return {
-		"speech": speech,
+		"speech": "Result from Webhook: ",
 		"displayText": speech,
-        #"data": facebookData,
-        # "contextOut": [],
+	#"data": facebookData,
+	# "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
 
