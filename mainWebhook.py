@@ -139,17 +139,29 @@ def makeWebhookResult(data, valutName):
 	}
 
 def constructFacebookListItem(tittle, subtittle, image_url, url, buttons):
-	return {
-		"title": tittle,
-		"image_url": image_url,
-		"subtitle": subtittle,
-		"default_action": {
-		"type": "web_url",
-		"url": url,
-		"webview_height_ratio": "tall"
-		},
-		"buttons": buttons   
-	}
+	if (buttons): 
+		return {
+			"title": tittle,
+			"image_url": image_url,
+			"subtitle": subtittle,
+			"default_action": {
+				"type": "web_url",
+				"url": url,
+				"webview_height_ratio": "tall"
+			},
+			"buttons": buttons   
+		}
+	else:
+		return {
+			"title": tittle,
+			"image_url": image_url,
+			"subtitle": subtittle,
+			"default_action": {
+				"type": "web_url",
+				"url": url,
+				"webview_height_ratio": "tall"
+			} 
+		}
 
 def constructFacebookButton(tittle, type, url, payload):
 	if (type == "web_url"):
