@@ -138,7 +138,7 @@ def makeCurrencyWebhookResult(data, valutName):
 	}
 	
 def makeDistrictWebhookResult(data, districtCode):
-	speech = ""
+	speech = "Result from Webhook: "
 	facebookData={
 		"facebook": {
 			"text":{ 
