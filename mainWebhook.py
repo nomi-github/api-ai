@@ -66,7 +66,7 @@ def processSpecificDistrictBranch(parameters):
 	
 	xmldoc = minidom.parseString(result)	
 	values = xmldoc.getElementsByTagName('BRANCH')	
-	speech = "Result from Webhook: " + distCode
+	speech = ""
 	for xmlValue in values:
 		tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
 		branchDistCode = (xmlValue.getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue
@@ -78,7 +78,7 @@ def processSpecificDistrictBranch(parameters):
 		#timeCode = xmlValue.getElementsByTagName('TIMECODE')
 		#print (branchDistCode + ', ' + tittle)
 		if (branchDistCode == distCode):
-			speech += tittle + ": " + detail + ", "
+			speech += tittle + ": " + detail + "\n"
 	
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
 
@@ -89,8 +89,6 @@ def processSpecificDistrictBranch(parameters):
         # "contextOut": [],
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
-	#res = makeDistrictWebhookResult(values, distCode)
-	#return res
 
 def processRequest(req):
 	result = req.get("result")
@@ -167,15 +165,6 @@ def makeCurrencyWebhookResult(data, valutName):
 		"source": "apiai-nomi-test-currency-converter-webhook-sample"
 	}
 	
-def makeDistrictWebhookResult(data, distCode):	
-	return {
-		"speech": "Result from Webhook: ",
-		"displayText": speech,
-	#"data": facebookData,
-	# "contextOut": [],
-		"source": "apiai-nomi-test-currency-converter-webhook-sample"
-	}
-
 def constructFacebookListItem(tittle, subtittle, image_url, url, buttons):
 	return {
 		"title": tittle,
