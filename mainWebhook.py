@@ -72,13 +72,13 @@ def processSpecificDistrictBranch(parameters):
 		branchDistCode = (xmlValue.getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue
 	#	tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
 		#id = xmlValue.getElementsByTagName('ID')
-	#	detail = (xmlValue.getElementsByTagName('DETAIL'))[0].firstChild.nodeValue
+		detail = (xmlValue.getElementsByTagName('DETAIL'))[0].firstChild.nodeValue
 		#email = xmlValue.getElementsByTagName('EMAIL')
 		#phone = xmlValue.getElementsByTagName('PHONE')
 		#timeCode = xmlValue.getElementsByTagName('TIMECODE')
 		#print (branchDistCode + ', ' + tittle)
 		if (branchDistCode == distCode):
-			speech += branchDistCode + ": " + tittle
+			speech += tittle + ": " + detail + ", "
 	
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
 
