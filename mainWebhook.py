@@ -63,14 +63,15 @@ def processSpecificDistrictBranch(parameters):
 			"source": "apiai-nomi-test-currency-converter-webhook-sample"
 		}
 	result = urlopen(baseurl).read()
+	
+	xmldoc = minidom.parseString(result)
 	return {
-			"speech": "xml read from URL",
-			"displayText": "xml read from URL",
+			"speech": "minidom parsed",
+			"displayText": "minidom parsed",
 			# "data": data,
 			# "contextOut": [],
 			"source": "apiai-nomi-test-currency-converter-webhook-sample"
 		}
-	xmldoc = minidom.parseString(result)
 	values = xmldoc.getElementsByTagName('BRANCH')	
 	res = makeDistrictWebhookResult(values, distCode)
 	return res
