@@ -66,15 +66,30 @@ def processSpecificDistrictBranch(parameters):
 	
 	xmldoc = minidom.parseString(result)	
 	values = xmldoc.getElementsByTagName('BRANCH')	
+	speech = "Result from Webhook: "
+	for xmlValue in values:
+		branchDistCode = (xmlValue.getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue
+		tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
+		#id = xmlValue.getElementsByTagName('ID')
+		detail = (xmlValue.getElementsByTagName('DETAIL'))[0].firstChild.nodeValue
+		#email = xmlValue.getElementsByTagName('EMAIL')
+		#phone = xmlValue.getElementsByTagName('PHONE')
+		#timeCode = xmlValue.getElementsByTagName('TIMECODE')
+		#print (branchDistCode + ', ' + tittle)
+		if (branchDistCode == distCode):
+			speech += tittle + ', хаяг: ' + detail + '\n'
+	
+			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
+
 	return {
-			"speech": (values[0].getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue,
-			"displayText": "minidom parsed",
-			# "data": data,
-			# "contextOut": [],
-			"source": "apiai-nomi-test-currency-converter-webhook-sample"
-		}
-	res = makeDistrictWebhookResult(values, distCode)
-	return res
+		"speech": speech,
+		"displayText": speech,
+        #"data": facebookData,
+        # "contextOut": [],
+		"source": "apiai-nomi-test-currency-converter-webhook-sample"
+	}
+	#res = makeDistrictWebhookResult(values, distCode)
+	#return res
 
 def processRequest(req):
 	result = req.get("result")
