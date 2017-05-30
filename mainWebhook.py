@@ -66,8 +66,9 @@ def processSpecificDistrictBranch(parameters):
 	
 	xmldoc = minidom.parseString(result)	
 	values = xmldoc.getElementsByTagName('BRANCH')	
-	speech = "Result from Webhook: "
+	speech = "Result from Webhook: " + distCode
 	for xmlValue in values:
+		tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
 		branchDistCode = (xmlValue.getElementsByTagName('DISTCODE'))[0].firstChild.nodeValue
 	#	tittle = (xmlValue.getElementsByTagName('TITLE'))[0].firstChild.nodeValue
 		#id = xmlValue.getElementsByTagName('ID')
@@ -77,7 +78,7 @@ def processSpecificDistrictBranch(parameters):
 		#timeCode = xmlValue.getElementsByTagName('TIMECODE')
 		#print (branchDistCode + ', ' + tittle)
 	#	if (branchDistCode == distCode):
-		speech += branchDistCode + ","
+		speech += branchDistCode + ": " + tittle
 	
 			#print("%s: %s, %s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s, %s-%s: %s," %(data[0][0], key, data[0][1], value[1], data[1][0],data[2][0],value[2],data[1][0],data[2][1],value[3],data[1][1],data[2][0],value[4],data[1][1],data[2][1],value[5]))
 
